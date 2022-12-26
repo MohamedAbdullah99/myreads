@@ -42,20 +42,20 @@ function App() {
     return map;
   }
   useEffect(() => {
-    let isActive = true;
+    let stutas = true;
     BooksAPI.search(query).then(data => {
        if (query) {
         if (data.error) {
             setSearchBook([])
         } else {
-            if (isActive) {
+            if (stutas) {
                 setSearchBook(data)
             }
         }
        }
     })
     return () => {
-        isActive = false;
+        stutas = false;
         setSearchBook([])
     }
   }, [query]);
